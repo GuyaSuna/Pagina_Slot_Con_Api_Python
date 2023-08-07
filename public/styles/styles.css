@@ -1,0 +1,260 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+  
+  .layout {
+    margin: 0 auto;
+    border: 2px solid #333;
+    padding: 20px;
+  }
+  
+  
+ header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
+.navbar-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.navbar-icon img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+/* Estilos para el nombre de la marca en el header */
+.brand-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Estilos para los botones de navegación */
+.navbar-nav .nav-item {
+  margin-right: 10px;
+}
+
+/* Estilos para los botones de autenticación */
+div > .btn-primary,
+div > .btn-outline-primary {
+  margin-left: 10px;
+}
+
+.Rutas{
+    animation: neonColors 3s ease-in-out infinite alternate;
+}
+
+  
+  /* Definir la animación "neonColors" */
+  @keyframes neonColors {
+    0%, 39%, 41%, 59%, 61%, 100% {
+      text-shadow: 
+        0 0 8px white,
+        0 0 16px #ff3aad,
+        0 0 24px #ff3aad,
+        0 0 32px #ff3aad,
+        0 0 40px #ff3aad,
+        0 0 48px #ff3aad,
+        0 0 56px #ff3aad;
+    }
+  
+    40%, 60% {
+      text-shadow: none;
+    }
+  }
+
+  .neonText {
+    animation: neonColors 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes neonBackground {
+    0%, 39%, 41%, 59%, 61%, 100% {
+      background-color: #000;
+      box-shadow:
+        0 0 12px white,
+        0 0 24px #ff3aad,
+        0 0 36px #ff3aad;
+    }
+  
+    40%, 60% {
+      background-color: #333;
+      box-shadow: none;
+    }
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  nav ul li {
+    display: inline-block;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 8px;
+  }
+  
+  nav ul li a:hover {
+    background-color: #555;
+  }
+  
+  .footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    animation: neonColors 3s ease-in-out infinite alternate;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .contact-info h3,
+  .social-links h3 {
+    margin-bottom: 10px;
+  }
+  
+  .social-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .social-links li {
+    display: inline;
+  }
+  
+  .social-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    animation: neonColors 3s ease-in-out infinite alternate;
+  }
+
+
+   /* CAROUSEL*/
+   .carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .carousel-item {
+    min-width: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .carousel-item.active {
+    transform: translateX(0);
+  }
+  
+  .carousel-item:not(.active) {
+    transform: translateX(100%);
+  }
+  
+  .carousel-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .carousel-control-prev {
+    left: 0;
+  }
+  
+  .carousel-control-next {
+    right: 0;
+  }
+  
+
+
+  /* CARDS */
+
+
+
+  .custom-card {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    opacity: 0.9;
+    margin-bottom: 20px;
+  }
+  
+  .custom-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-card .card-img-top {
+    width: 100%;
+    height: 200px; /* Ajusta la altura deseada para la imagen */
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .custom-card .card-body {
+    padding: 16px;
+  }
+  
+  .custom-card .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .custom-card .card-text {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .custom-card .text-muted {
+    font-size: 12px;
+    color: #999;
+  }
+
+
+  /* SlotMachine.css */
+.slot-machine {
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+}
