@@ -6,15 +6,15 @@ import '../../public/styles/styles.css';
 const links = [
   {
     label: 'Home',
-    route: '../',
+    route: '/',
   },
   {
     label: 'About',
-    route: '../about',
+    route: '/about',
   },
   {
     label: 'JuegoUno',
-    route: '../JuegoUno',
+    route: '/JuegoUno',
   }
 ];
 
