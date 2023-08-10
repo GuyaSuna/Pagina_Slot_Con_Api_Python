@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-
+import '../../public/styles/styles.css'
 const Card = (props) => {
   return (
     <div className="card custom-card custom-card-opacity">

@@ -18,7 +18,7 @@ const links = [
   }
 ];
 
-export function Header() {
+export default function Header() {
   return (
     <header className="navbar navbar-expand-md navbar-dark bg-dark">
       <div className="container">
@@ -28,7 +28,7 @@ export function Header() {
         </div>
 
         <Link href="/" className="navbar-brand">
-          <span className="brand-name">Aplicacion para Casino</span>
+          <span className="brand-name">La Bombonera</span>
         </Link>
 
 

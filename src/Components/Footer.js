@@ -1,6 +1,6 @@
-'use client'
-import React from 'react';
 
+import React from 'react';
+import '../../public/styles/styles.css';
 export default function Footer() {
   return (
     <footer className="footer">

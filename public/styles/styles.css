@@ -253,8 +253,64 @@ div > .btn-outline-primary {
 
 
   /* SlotMachine.css */
-.slot-machine {
-  font-size: 40px;
-  display: flex;
-  justify-content: center;
-}
+  .slot-machine {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    width: 900px; 
+  }
+  
+  .reels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .reel-line {
+    display: flex;
+  }
+  
+  .reel-cell {
+    font-size: 60px; /* Aumenta el tamaño de la fuente */
+    width: 140px; /* Aumenta el tamaño del cuadro */
+    height: 140px; /* Aumenta el tamaño del cuadro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .spinning .reel-cell {
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .spin-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .spin-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
