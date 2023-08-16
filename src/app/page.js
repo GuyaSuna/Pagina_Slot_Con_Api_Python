@@ -51,11 +51,8 @@ export default function Home() {
             zIndex: 1, // Asegura que esté por encima del video
           }}
         >
-          <h1 className="neonText">La Bombonera</h1>
-          <p className="neonText">Animate a jugar y ganar!!!</p>
-          <button onClick={ () => alert("Tonta")} className="btn btn-primary">
-            Mostrar Mensaje
-          </button>
+          <h1 className="neonText">App Prueba slot</h1>
+          <p className="neonText">Animate a jugar y ganar!!!</p>          
         </div>
       </div>
 

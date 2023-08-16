@@ -19,15 +19,18 @@ const SlotMachine = () => {
   const handleSpin = () => {
     setSpinning(true);
 
-    setTimeout(() => {
-      setSpinning(false);
+    const interval = setInterval(() => {
       const newReels = [...reels];
       for (let i = 0; i < newReels.length; i++) {
         newReels[i] = symbols[Math.floor(Math.random() * symbols.length)];
       }
       setReels(newReels);
+    }, 100);
 
-      checkWin(newReels);
+    setTimeout(() => {
+      clearInterval(interval);
+      checkWin(reels);
+      setSpinning(false);
     }, 2500);
   };
 
@@ -59,10 +62,12 @@ const SlotMachine = () => {
     <div className="slot-machine">
       <div className="reels">
         {[0, 1, 2].map((row) => (
-          <div key={row} className="reel-line">
+          <div key={row} className={`reel-line ${spinning ? 'spinning' : ''}`}>
             {[0, 1, 2, 3, 4].map((column) => (
-              <div key={row * 5 + column} className={`reel-cell ${spinning ? 'spinning' : ''}`}>
-                {spinning ? '🎰' : reels[row * 5 + column].symbol}
+              <div id={row * 5 + column} className={`reel-cell ${spinning ? 'spinning' : ''}`}>
+                <div className={`symbol ${spinning ? 'spinning' : ''}`}>
+                  <span id={reels[row * 5 + column].symbol}>{reels[row * 5 + column].symbol}</span>
+                </div>
               </div>
             ))}
           </div>
