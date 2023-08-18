@@ -1,0 +1,299 @@
+$icon_width: 79px;
+$icon_height: 79px;
+$num_icons: 9;
+
+.debug {
+  position: fixed;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px;
+  background: white;
+  border: 1px solid rgba(black, 0.3);
+  font-family: monospace;
+  font-size: 1.6rem;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, grey 0%, lightgray 100%);
+  margin: 0;
+  padding: 0;
+}
+.icon {
+	width: 100%; 
+	height: 100%; 
+	background-size: cover; 
+	transition: transform 0.3s ease-in-out; 
+  }
+.slots {
+  position: relative;
+  width: 6 * $icon_width;
+  height: 5 * $icon_height;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3 * $icon_width;
+  background: linear-gradient(45deg, grey 0%, lightgray 100%);
+  border-top: 1px solid rgba(white, 0.6);
+  border-right: 1px solid rgba(white, 0.6);
+  border-left: 1px solid rgba(black, 0.4);
+  border-bottom: 1px solid rgba(black, 0.4);
+  box-shadow: -2px 2px 3px rgba(black, 0.3);
+  border-radius: 3px;
+  margin-top: 20px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    height: 2px;
+    background-color: rgba(black, 0.5);
+  }
+
+  &::before {
+    left: 0;
+    transform: translate(-200%, -50%);
+  }
+
+  &::after {
+    right: 0;
+    transform: translate(200%, -50%);
+  }
+	
+	@keyframes win1 {
+		0% { background: linear-gradient(45deg, orange 0%, yellow 100%); 
+		box-shadow: 0 0 80px orange }
+		100% { background: linear-gradient(45deg, grey 0%, lightgrey 100%); box-shadow: -2px 2px 3px rgba(black, 0.3); }
+	}
+	
+	@keyframes win2 {
+		0% { background: linear-gradient(45deg, lightblue 0%, lightgreen 100%); 
+		box-shadow: 0 0 80px lightgreen }
+		100% { background: linear-gradient(45deg, grey 0%, lightgrey 100%); box-shadow: -2px 2px 3px rgba(black, 0.3); }
+	}
+	
+	&.win1 {
+		animation: win1 200ms steps(2, end) infinite;
+	}
+	
+	&.win2 {
+		animation: win2 200ms steps(2, end) infinite;
+	}
+
+	.reel {
+		position: relative;
+		width: $icon_width;
+		height: 3 * $icon_height;
+		border: 1px solid rgba(black, 0.3);
+		border-radius: 3px;
+		overflow: hidden;
+		background-image: url(https://assets.codepen.io/439000/slotreel.webp);
+		background-position: 0 0;
+		background-repeat: repeat-y;
+		
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: linear-gradient(rgba(black, 0.4) 0%, transparent 30%, transparent 70%, rgba(black, 0.4) 100%);
+			box-shadow: inset 0 0 6px 2px rgba(black, 0.3);
+		}
+
+	}
+	margin: auto;
+}
+.spin-button {
+	margin-top: 20px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+  }
+
+/* header y footer*/
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+  }
+	
+	.layout {
+	  margin: 0 auto;
+	  border: 2px solid #333;
+	  padding: 20px;
+	}
+	
+	
+   header {
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+	width: 100%;
+	height: 80px;
+  }
+  .navbar-icon {
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
+  }
+  
+  .navbar-icon img {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+  }
+  
+  /* Estilos para el nombre de la marca en el header */
+  .brand-name {
+	font-size: 1.2rem;
+	font-weight: bold;
+  }
+  
+  /* Estilos para los botones de navegación */
+  .navbar-nav .nav-item {
+	margin-right: 10px;
+  }
+  
+  /* Estilos para los botones de autenticación */
+  div > .btn-primary,
+  div > .btn-outline-primary {
+	margin-left: 10px;
+  }
+  
+  .Rutas{
+	  animation: neonColors 3s ease-in-out infinite alternate;
+  }
+  
+	
+	/* Definir la animación "neonColors" */
+	@keyframes neonColors {
+	  0%, 39%, 41%, 59%, 61%, 100% {
+		text-shadow: 
+		  0 0 8px white,
+		  0 0 16px #ff3aad,
+		  0 0 24px #ff3aad,
+		  0 0 32px #ff3aad,
+		  0 0 40px #ff3aad,
+		  0 0 48px #ff3aad,
+		  0 0 56px #ff3aad;
+	  }
+	
+	  40%, 60% {
+		text-shadow: none;
+	  }
+	}
+  
+	.neonText {
+	  animation: neonColors 3s ease-in-out infinite alternate;
+	}
+  
+	@keyframes neonBackground {
+	  0%, 39%, 41%, 59%, 61%, 100% {
+		background-color: #000000;
+		box-shadow:
+		  0 0 12px white,
+		  0 0 24px #ff3aad,
+		  0 0 36px #ff3aad;
+	  }
+	
+	  40%, 60% {
+		background-color: #333;
+		box-shadow: none;
+	  }
+	}
+	
+	nav ul {
+	  list-style: none;
+	  display: flex;
+	  justify-content: center;
+	  gap: 20px;
+	}
+	
+	nav ul li {
+	  display: inline-block;
+	}
+	
+	nav ul li a {
+	  text-decoration: none;
+	  color: #fff;
+	  font-size: 18px;
+	  padding: 8px;
+	}
+	
+	nav ul li a:hover {
+	  background-color: #555;
+	}
+	
+	.footer {
+		background-color: #333;
+		color: #fff;
+		padding: 20px;
+		text-align: center;
+		width: 100%;
+		animation: neonColors 3s ease-in-out infinite alternate;
+		position: absolute;
+		bottom: 0;
+	  }
+	  
+	  /* Estilos para el enlace del footer */
+	  .footer a {
+		color: #fff;
+		text-decoration: none;
+	  }
+  
+	.footer-content {
+	  display: flex;
+	  justify-content: space-between;
+	  max-width: 800px;
+	  margin: 0 auto;
+	}
+	
+	.contact-info h3,
+	.social-links h3 {
+	  margin-bottom: 10px;
+	}
+	
+	.social-links ul {
+	  list-style: none;
+	  padding: 0;
+	  display: flex;
+	  gap: 10px;
+	}
+	
+	.social-links li {
+	  display: inline;
+	}
+	
+	.social-links a {
+	  color: #fff;
+	  text-decoration: none;
+	}
+	
+	.footer-bottom {
+	  text-align: center;
+	  margin-top: 20px;
+	  animation: neonColors 3s ease-in-out infinite alternate;
+	}
+  
+  

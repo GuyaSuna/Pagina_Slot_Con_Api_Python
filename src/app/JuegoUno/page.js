@@ -1,83 +1,57 @@
 'use client'
-import React, { useState } from 'react';
-import '../../../public/styles/styles.css';
+import React, { useState, useEffect } from 'react';
+import { gsap } from 'gsap';
+import '../../../public/styles/juegoUno.scss';
 
 const SlotMachine = () => {
-  const symbols = [
-    { id: 1, symbol: '🍒', points: 10 },
-    { id: 2, symbol: '🍊', points: 20 },
-    { id: 3, symbol: '🍇', points: 30 },
-    { id: 4, symbol: 'Ea', points: 40 },
-    { id: 5, symbol: 'Jiji', points: 50 },
-    { id: 6, symbol: 'B)', points: 60 },
-    { id: 7, symbol: 'Joker', points: 100 }
-  ];
+  const iconMap = ["banana", "seven", "cherry", "plum", "orange", "bell", "bar", "lemon", "melon"];
+  const num_icons = iconMap.length;
+  const iconHeight = 79; // Height of each icon in pixels
+  const [indexes, setIndexes] = useState([0, 0, 0, 0, 0]);
 
-  const [spinning, setSpinning] = useState(false);
-  const [reels, setReels] = useState([...Array(15)].map(() => symbols[Math.floor(Math.random() * symbols.length)]));
-
-  const handleSpin = () => {
-    setSpinning(true);
-
-    const interval = setInterval(() => {
-      const newReels = [...reels];
-      for (let i = 0; i < newReels.length; i++) {
-        newReels[i] = symbols[Math.floor(Math.random() * symbols.length)];
-      }
-      setReels(newReels);
-    }, 100);
-
-    setTimeout(() => {
-      clearInterval(interval);
-      checkWin(reels);
-      setSpinning(false);
-    }, 2500);
+  const animateReel = (reel, newIndex) => {
+    gsap.to(reel, {
+      backgroundPosition: `0 ${newIndex * iconHeight}px`, // Move background position downwards
+      velocity: 50,
+      duration: 2, // Duration of the animation
+      onComplete: () => {
+        // Animation complete
+      },
+    });
   };
+  
+ const rollAll = () => {
+      const newIndexes = indexes.map(() => Math.floor(Math.random() * num_icons));
 
-  const checkWin = (reels) => {
-    const winCombinations = [
-      [0, 1, 2],
-      [5, 6, 7],
-      [10, 11, 12]
-    ];
+      const reelsList = document.querySelectorAll('.reel');
+      const reelsArray = Array.from(reelsList); // Convert NodeList to array
 
-    let winningPoints = 0;
+      reelsArray.forEach((reel, i) => {
+        animateReel(reel, newIndexes[i]);
+      });
 
-    for (const combination of winCombinations) {
-      if (
-        reels[combination[0]].symbol === reels[combination[1]].symbol &&
-        reels[combination[1]].symbol === reels[combination[2]].symbol
-      ) {
-        const winningSymbol = reels[combination[0]].symbol;
-        winningPoints += reels.find((reel) => reel.symbol === winningSymbol).points;
-      }
-    }
+      setTimeout(() => {   
+          setIndexes(newIndexes);     
+      }, 2000);
+    };
 
-    if (winningPoints > 0) {
-      alert(`¡Has ganado ${winningPoints} puntos!`);
-    }
-  };
 
   return (
-    <div className="slot-machine">
-      <div className="reels">
-        {[0, 1, 2].map((row) => (
-          <div key={row} className={`reel-line ${spinning ? 'spinning' : ''}`}>
-            {[0, 1, 2, 3, 4].map((column) => (
-              <div id={row * 5 + column} className={`reel-cell ${spinning ? 'spinning' : ''}`}>
-                <div className={`symbol ${spinning ? 'spinning' : ''}`}>
-                  <span id={reels[row * 5 + column].symbol}>{reels[row * 5 + column].symbol}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        ))}
+    <>
+      <div className="slots">
+        <div className={`reel ${iconMap[indexes[0]]}`}></div>
+        <div className={`reel ${iconMap[indexes[1]]}`}></div>
+        <div className={`reel ${iconMap[indexes[2]]}`}></div>
+        <div className={`reel ${iconMap[indexes[3]]}`}></div>
+        <div className={`reel ${iconMap[indexes[4]]}`}></div>
       </div>
-      <button className="spin-button" onClick={handleSpin} disabled={spinning}>
-        {spinning ? 'Girando...' : 'Girar'}
+      <button className="spin-button" onClick={() => rollAll()}>
+        Girar
       </button>
-    </div>
+      <div style={{ height: 500 }} />
+    </>
   );
 };
 
 export default SlotMachine;
+
