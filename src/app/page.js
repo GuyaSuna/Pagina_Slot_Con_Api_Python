@@ -5,6 +5,8 @@ import Card from '../Components/Card';
 
 const imagenes = [
   'https://i0.wp.com/fuencarralelpardo.com/wp-content/uploads/2019/07/casino-3491253_1280.jpg?fit=1280%2C853&ssl=1',
+  'https://i0.wp.com/fuencarralelpardo.com/wp-content/uploads/2019/07/casino-3491253_1280.jpg?fit=1280%2C853&ssl=1',
+  'https://i0.wp.com/fuencarralelpardo.com/wp-content/uploads/2019/07/casino-3491253_1280.jpg?fit=1280%2C853&ssl=1',
   'https://curiosfera-historia.com/wp-content/uploads/Historia-de-las-m%C3%A1quinas-tragaperras-1.jpg',
   'https://casinoalto.com/wp-content/uploads/2017/12/tragaperras-como-funcionan.webp',
   'https://i0.wp.com/fuencarralelpardo.com/wp-content/uploads/2019/07/casino-3491253_1280.jpg?fit=1280%2C853&ssl=1',
